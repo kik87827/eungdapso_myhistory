@@ -1,13 +1,16 @@
 if( window.console == undefined ){ console = { log : function(){} }; }
 /** browser checker **/
 var touchstart = "ontouchstart" in window;
+var focusGlobalItem = "a,button,textarea,input[type='button'],input[type='image'],input[type='input'],input[type='password'],input[type='checkbox'],input[type='radio'],select,[tabindex]";
 var userAgent=navigator.userAgent.toLowerCase();
 var resizePartWidth = 1023;
 ;(function($){$.browserTest=function(a,z){var u='unknown',x='X',m=function(r,h){for(var i=0;i<h.length;i=i+1){r=r.replace(h[i][0],h[i][1]);}return r;},c=function(i,a,b,c){var r={name:m((a.exec(i)||[u,u])[1],b)};r[r.name]=true;r.version=(c.exec(i)||[x,x,x,x])[3];if(r.name.match(/safari/)&&r.version>400){r.version='2.0';}if(r.name==='presto'){r.version=($.browser.version>9.27)?'futhark':'linear_b';}r.versionNumber=parseFloat(r.version,10)||0;r.versionX=(r.version!==x)?(r.version+'').substr(0,1):x;r.className=r.name+r.versionX;return r;};a=(a.match(/Opera|Navigator|Minefield|KHTML|Chrome/)?m(a,[[/(Firefox|MSIE|KHTML,\slike\sGecko|Konqueror)/,''],['Chrome Safari','Chrome'],['KHTML','Konqueror'],['Minefield','Firefox'],['Navigator','Netscape']]):a).toLowerCase();$.browser=$.extend((!z)?$.browser:{},c(a,/(camino|chrome|firefox|netscape|konqueror|lynx|msie|opera|safari)/,[],/(camino|chrome|firefox|netscape|netscape6|opera|version|konqueror|lynx|msie|safari)(\/|\s)([a-z0-9\.\+]*?)(\;|dev|rel|\s|$)/));$.layout=c(a,/(gecko|konqueror|msie|opera|webkit)/,[['konqueror','khtml'],['msie','trident'],['opera','presto']],/(applewebkit|rv|konqueror|msie)(\:|\/|\s)([a-z0-9\.]*?)(\;|\)|\s)/);$.os={name:(/(win|mac|linux|sunos|solaris|iphone)/.exec(navigator.platform.toLowerCase())||[u])[0].replace('sunos','solaris')};if(!z){$('html').addClass([$.os.name,$.browser.name,$.browser.className,$.layout.name,$.layout.className].join(' '));}};$.browserTest(navigator.userAgent);})(jQuery);//http://jquery.thewikies.com/browser/
 $(function(){
 	commonInit();
 	dimLayerControl();
-	subContentsTogglefunc();
+	// subContentsTogglefunc();
+	scform();
+	datePicker();
 });
 $(window).on("load",function(){
 	submapMenu();
@@ -23,6 +26,9 @@ function commonResize() {
 		if ($window_width == $(window).width()) {
 			return;
 		}
+
+		subForm();
+		reformFunc();
 		if ($(window).width() < resizePartWidth) {
 
 		} else {
@@ -35,11 +41,13 @@ function commonResize() {
 
 
 /* menu rock(모바일) */
-function menuRock(target){
+function mobileMenuRock(target){
 	$(function(){
 		var $target = $(target),
-			$t_togone = $target.find(".mbmenu_one");
-			$t_two = $target.find(".mbmenu_two_vlist_w");
+			$t_p = $target.parents(".mbmenu_vlist > li"),
+			$t_togone = $t_p.find(".mbmenu_one");
+			$t_two = $t_p.find(".mbmenu_two_vlist_w");
+		$t_p.addClass("active");
 		$target.addClass("active");
 		$t_togone.addClass("active");
 		if($t_two.length){
@@ -120,11 +128,59 @@ function submapMenu() {
 	});
 }
 
+function loginTabFunc(){
+	var $sf_intab = $(".sf_intab");
+	var $sf_inboxcont = $(".sf_inboxcont");
+	var $mid_contents = $(".mid_contents");
+	var midfocusOut = false;
+	var clickis = false;
+
+	$sf_intab.last().addClass("last");
+	$sf_intab.on("click",function(e){
+		clickis = true;
+		var $t = $(this);
+		var $t_t = $($t.attr("href"));
+		e.preventDefault();
+		$t.siblings(".sf_intab").removeClass("active");
+		$t.addClass("active");
+		if($t_t.length){
+			$t_t.siblings(".sf_inboxcont").removeClass("active");
+			$t_t.addClass("active");
+		}
+	});
+	$(window).on("keydown",function(e){
+        clickis = false;
+    });
+	$sf_intab.on("focusout", function (e) {
+		if(clickis){return;}
+		var $this = $(this);
+		if ($this.hasClass("active")) {
+			$sf_inboxcont.find("a,button,input,select").first().focus();
+		} else {
+			if ($this.hasClass("last")) {
+				$(".ctout_item").focus();
+			}
+		}
+	});
+	$mid_contents.on("focusout",function(){
+		midfocusOut = true;
+	});
+	$mid_contents.on("focusin",function(){
+		midfocusOut = false;
+	});
+	$(".ctout_item").on("focus",function(){
+		if (midfocusOut){
+			$(".sf_intab.active").next().focus();
+		}
+	});
+}
+
 function subContentsTabFunc(tablist,cont){
 	var $sctab_contents = $(cont);
 	var $tablist = $(tablist);
 	var $sctab = $tablist.find(".sctab");
 	var $scdep_tab = $sctab_contents.find(".scdep_tab");
+	var $mid_contents = $(".mid_contents");
 
 	// $sctab_contents.each(function () {
 	// 	var focusable = [];
@@ -148,7 +204,7 @@ function subContentsTabFunc(tablist,cont){
 	// 	}
 	// });
 
-	$(".mid_contents").next().find("a,button,textarea,input,select,[tabindex]").first().addClass("ctout_item");
+	
 
 	$sctab.last().addClass("last");
 	$scdep_tab.last().addClass("last");
@@ -165,12 +221,12 @@ function subContentsTabFunc(tablist,cont){
 	// 	$("li.active",$tablist).next().find(".sctab").focus();
 	// });
 	var midfocusOut = false;
-	$(".mid_contents").on("focusout",function(){
+	$mid_contents.on("focusout",function(){
 		midfocusOut = true;
-	})
-	$(".mid_contents").on("focusin",function(){
+	});
+	$mid_contents.on("focusin",function(){
 		midfocusOut = false;
-	})
+	});
 	$(".ctout_item").on("focus",function(){
 		if (midfocusOut){
 			$("li.active", $tablist).next().find(".sctab").focus();
@@ -202,6 +258,12 @@ function commonInit(){
         }
     });
 
+
+	var $midcontents = $(".mid_contents");
+	if($midcontents.length){
+		$midcontents.next("div,footer,section").find(focusGlobalItem).first().addClass("ctout_item");
+	}
+
 	/* 스킵메뉴 접근성 이동 스크립트 */
 	var $skipitem = $(".skiplist");
 	if($skipitem.length){
@@ -219,7 +281,8 @@ function commonInit(){
 	}
 
 	relativeSite();
-
+	headerAction();
+	
 	// mobile total
 	function mbTotal() {
 		var $btn_mbmenucall = $(".btn_mbmenucall"),
@@ -308,6 +371,36 @@ function commonInit(){
 	});
 }
 
+/* 달력호출 */
+function datePicker(){
+	var $datepicker = $(".define_calendar");
+	if($datepicker.length){
+		$datepicker.each(function(){
+			var $dateThis = $(this);
+			$(this).datepicker({
+				monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+				dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: 'yy-mm-dd'
+			});
+		});
+		var $windowWidth = 0;
+		$(window).on("resize",function(){
+			if($windowWidth == $(window).width() && touchstart){return;}
+			$datepicker.datepicker("hide");
+			$windowWidth = $(window).width();
+		});
+		/*$datepicker.on("focus",function(){
+			$(window).off("resize");
+		});
+		$datepicker.on("focusout",function(){
+			$(window).on("resize");
+		});*/
+	}
+}
+
+// 푸터 연관사이트
 function relativeSite(){
 	var friend_site = $(".friend_site");
 	var btn_related_go = $(".btn_related_go");
@@ -334,6 +427,88 @@ function relativeSite(){
 	});
 }
 
+// 상단헤더 액션
+function headerAction(){
+	var dimd = null;
+	var $header_wrap = $(".header_wrap");
+	var btn_headsearch = $(".btn_headsearch");
+	var btn_headsearch_hdtext = btn_headsearch.find(".hdtext");
+	var btn_headsearch_opentext = btn_headsearch_hdtext.text();
+	var btn_headsearch_closetext = btn_headsearch.attr("data-closeText");
+	var search_toplayer = $(".search_toplayer");
+	var $page_wrap = $(".page_wrap");
+	if($page_wrap.length===0){return;}
+	$header_wrap.next("div,footer,section").find(focusGlobalItem).first().addClass("hdout_item");
+	$page_wrap.append("<div class='bg_dim' />");
+	dimd = $(".bg_dim");
+
+	$(window).on("resize",function(){
+		if($header_wrap.length){
+			search_toplayer.css({"top" : $header_wrap.outerHeight() , "max-height" : $(window).height() - $header_wrap.outerHeight() });
+		}
+	}).resize();
+
+	var searchfocusOut = false;
+	search_toplayer.on("focusout",function(){
+		searchfocusOut = true;
+	});
+	search_toplayer.on("focusin",function(){
+		searchfocusOut = false;
+	});
+
+	
+	
+	btn_headsearch.on("click",function(){
+		openCloseAction();
+	});
+	dimd.on("click",function(){
+		if(search_toplayer.hasClass("active")){
+			closeAction();
+		}
+	});
+	openCloseAction();
+
+	
+	// $(".hdout_item").on("focus",function(){
+	// 	if(search_toplayer.hasClass("active") && btn_headsearch.hasClass("mode_del") && searchfocusOut){
+	// 		btn_headsearch.focus();
+	// 	}
+	// });
+
+	$header_wrap.next("div,footer,section").on("focusin",function(){
+		if(search_toplayer.hasClass("active") && btn_headsearch.hasClass("mode_del") && searchfocusOut){
+			btn_headsearch.focus();
+		}
+	});
+
+
+	function openCloseAction(){
+		search_toplayer.toggleClass("active");
+		btn_headsearch.toggleClass("mode_del");
+		dimd.fadeToggle();
+		if(search_toplayer.hasClass("active")){
+			$("body").data("data-scr",$(window).scrollTop()).css({"margin-top":-$(window).scrollTop()})
+			$("html").addClass("touchDis");
+			btn_headsearch_hdtext.text(btn_headsearch_closetext);
+		}else{
+			$("html,body").removeClass("touchDis touchDis2");
+			$("body").css({"margin-top":0});
+			window.scrollTo(0,Number($("body").data("data-scr")));
+			btn_headsearch_hdtext.text(btn_headsearch_opentext);
+		}
+	}
+
+	function closeAction(){
+		search_toplayer.removeClass("active");
+		btn_headsearch.removeClass("mode_del").focus();
+		dimd.fadeOut();
+		$("html,body").removeClass("touchDis touchDis2");
+		$("body").css({"margin-top":0});
+		window.scrollTo(0,Number($("body").data("data-scr")));
+	}
+}
+
+// 레이어
 function localLayer(){
 	var subcont_zone = $(".subcont_zone");
 	var local_layercall = $(".local_layercall");
@@ -388,23 +563,87 @@ function localLayer(){
 	});
 }
 
-function subContentsTogglefunc(){
+/* form 아이템 */
+function scform(){
+	$(document).on("change",".form_select",function(){
+		var $t = $(this),
+			$t_option = $t.children("option:selected");
+		if($t_option[0].value === "0"){
+			$t.addClass("ready_select");
+		}else{
+			$t.removeClass("ready_select");
+		}
+	});
+}
+
+function subContentsTogglefunc(obj){
 	$(function(){
 		action();
 	});
 	function action(){
 		var btn_call = $(".btn_deptailcall");
-		btn_call.on("click",function(e){
-			e.preventDefault();
-			var $t = $(this),
-				$t_t = $($t.attr("data-toggleTarget")),
-				$t_p = $t.parents(".subdep3_vtitle_fxwrap");
-			if ($t_t.length){
-				$t_p.toggleClass("active");
-				$t_t.slideToggle();
-			}
+		btn_call.each(function(){
+			var toggleIs = false;
+			$(this).on("click",function(e){
+				e.preventDefault();
+				var toggleis = false;
+				var $t = $(this),
+					$t_t = $($t.attr("data-toggleTarget")),
+					$t_hdtext = $t.find(".hdtext"),
+					$t_p = $t.parents(".subdep3_vtitle_fxwrap");
+				if ($t_t.length){
+					$t_p.toggleClass("active");
+					$t_t.slideToggle();
+				}
+				if(toggleIs){
+					$t_hdtext.text(obj.openText);
+				}else{
+					$t_hdtext.text(obj.closeText);
+				}
+				toggleIs = !toggleIs;
+			});
 		});
 	}
+}
+
+/* form */
+function reformFunc(){
+	var $resitem = $("[data-pcwid]");
+	if($resitem.length===0){return;}
+	$resitem.each(function(){
+		var $this = $(this);
+		if($(window).width()<=1023){
+			$this.css({"width":""});
+		}else{
+			$this.css({ "width": $this.attr("data-pcwid")});
+		}
+	});
+}
+function subForm(){
+	$(function(){
+		var $datambcols = $("[data-mbcols]");
+		var $dataplaceholder = $("[data-placeholder]");
+		$datambcols.each(function(){
+			var $t = $(this),
+				$t_attri = $t.attr("data-mbcols");
+			
+			if($(window).width()<=1023){
+				$t.attr("colspan", $t_attri);
+			}else{
+				$t.attr("colspan", $t.attr("data-origin"));
+			}
+		});
+		$dataplaceholder.each(function(){
+			var $t = $(this),
+				$t_attri = $t.attr("data-placeholder");
+
+			if ($(window).width() <= 1023) {
+				$t.removeAttr("placeholder");
+			} else {
+				$t.attr("placeholder", $t_attri);
+			}
+		});
+	});
 }
 
 /* layer popup event */
@@ -481,15 +720,15 @@ function dimLayerShow(option){
 		$page_wrap.append($target);
 		heightcheck();
 
-		fullContHeight();
+		// fullContHeight();
 		
+		if ($target.hasClass("fulltype")) {
+			$fullpop_titlow = $target.find(".fullpop_titlow");
+			$fullpop_contlow = $target.find(".fullpop_contlow");
+			$fullpop_item = $target.find(".fullpop_item");
+		}
 
 		setTimeout(function(){
-			if($t_box_cont.length){
-				$t_box_cont.attr("tabindex","0");
-			}else{
-				$t_box.attr("tabindex","0");
-			}
 			if ($target.hasClass("fulltype")) {
 				setTabControl($fullpop_item);
 			}else{
@@ -512,7 +751,7 @@ function dimLayerShow(option){
 						$res_value = 40;
 					}
 					$fullpop_contlow.css({
-						height: $(window).height() - $fullpop_titlow.outerHeight() - $res_value
+						height: $fullpop_item.outerHeight() - $fullpop_titlow.outerHeight() - $res_value
 					});
 				}
 			}
@@ -531,9 +770,6 @@ function dimLayerShow(option){
 		$(window).on("resize", function () {
 			if ($windowWid == $(window).width()) {
 				return;
-			}
-			if ($target.hasClass("fulltype")) {
-				fullContHeight();
 			}
 			$windowWid = $(window).width();
 		});

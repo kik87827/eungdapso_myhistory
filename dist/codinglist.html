@@ -1,175 +1,1 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="format-detection" content="telephone=no" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="./images/logo_icon_114.png">
-<link rel="apple-touch-icon" href="./images/logo_icon_114.png">
-<meta name="viewport" content="width=1200" />
-<link rel="stylesheet" href="css/reset.css" />
-<script src="./js/jquery-1.12.4.min.js"></script>
-<title></title>
-<style type="text/css">
-*{margin:0;padding:0;}
-ul{list-style: none;margin:0;padding:0;}
-table {border-collapse:collapse; border-spacing:0;}
-table th, strong {font-weight:normal;}
-body{margin:20px;}
-h1{margin:0 0 10px 0;color:#000;font-size:30px;font-family: 'Noto Sans KR'; font-weight:700}
-a {text-decoration:none;color:#000;}
-a:hover {text-decoration:underline;}
-.list_w table {	width: 100%;	margin: 20px auto;	border-top: solid 2px #555;font-family: 'Noto Sans KR';	border-collapse: collapse;	border-spacing: 0;	font-size: 17px; text-align:center;}
-.list_w table tr:hover {background:#f3f3f3;}
-.list_w table th {font-family: 'Noto Sans KR';font-size: 17px;	padding: 10px 0;	border: solid 1px #ddd;	background: #efefef;vertical-align:middle;}
-.list_w table td {font-family: 'Noto Sans KR';	font-size: 17px;padding: 10px 3px;	border: solid 1px #ccc;vertical-align:middle;}
-.lastmdate {color: #1155CC;}
-.stand_by {color:#777;}
-.stop {color:#787878;}
-.ing {color:blue !important;}
-.bgo{text-align:left;color:#fff;font-size:15px !important;}
-.end {background:green !important;color:#fff !important;}
-.defer{color:red;}
-.modify{color:#ff5400;}
-.list_w table td.link,
-.list_w table td.td_url,
-.list_w table td.etc{text-align: left; padding-left:10px;}
-.ing_w{border:1px solid #000;margin:0 0 20px;padding:5px 10px;}
-.t_tit{margin:20px 0 10px ;font-size:20px;}
-.ing_w .inglist li{padding:10px;border-bottom:1px solid #999;}
-.ing_w .inglist li:last-child{border-bottom:0;}
-.ing_w .inglist .date{font-weight:bold;}
-.ing_w .inglist .text .ingtext{font-weight:bold;}
-.guidelist{padding:8px 0;}
-.guidelist li{padding:2px 10px;}
-.alignleft{text-align:left;padding-left:10px !important;}
-.depth td{background:#4264c2;color:#fff;text-align:center;font-size:20px;font-family: 'Noto Sans KR';padding:10px;}
-.dev td{background:#4264c2;color:#fff;text-align:center;font-size:20px;font-family: 'Noto Sans KR';padding:10px;}
-.dev_notice{border-top:1px solid #000;border-bottom:1px solid #000;padding:10px;margin:30px 0;}
-.header_pixed{position:fixed;top:0;left:0;width:100%;background:#fff;box-sizing:border-box;padding:20px;border-bottom:1px solid #000;}
-.header_pixed p{font-family: 'Noto Sans KR';font-size: 17px;margin-top:5px;}
-</style>
-<script>
-	$(window).on("load",function(){
-		$("#guide_wrap").css("padding-top",$(".header_pixed").outerHeight());
-	});
-	function myPopup(myURL, title, myWidth, myHeight) {
-	var left = (screen.width - myWidth) / 2;
-	var top = (screen.height - myHeight) / 4;
-	var myWindow = window.open(myURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + myWidth + ', height=' + myHeight + ', top=' + top + ', left=' + left);
-	}
-</script>
-</head>
-<body id="guide">
-
-<!-- eniter wrap -->
-<div id="guide_wrap">
-	<div class="header_pixed">
-		<h1>응답소</h1>
-		<p>End page : <span class="curr_n"></span>page / Total page : <span class="total_n"></span>page</p>
-		<p>진행율 : <span class="per"></span></p>
-	</div>
-   <div class="list_w">
-		<table class="codinglist">
-			<colgroup>
-				<col width="3%" />
-				<col />
-				<col width="35%" />
-				<col width="10%" />
-				<col width="30%" />
-			</colgroup>
-			<thead>
-				<tr>
-					<th>no.</th>
-					<th>filename/link</th>
-					<th>HTML 파일명</th>
-					<th>현황</th>
-					<th>전달사항</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="depth">
-					<td colspan="5">개발시 참고 페이지</td>
-				</tr>
-				<tr>
-					<td class="no"></td>
-					<td class="link"><a href="page.html" target="_blank">레이아웃 - 로그인전</a></td>
-					<td class="td_url"></td>
-					<td class="work end"></td>
-					<td class="bgo"></td>
-				</tr>
-				<tr>
-					<td class="no"></td>
-					<td class="link"><a href="page2.html" target="_blank">레이아웃 - 타입2 - 로그인전</a></td>
-					<td class="td_url"></td>
-					<td class="work end"></td>
-					<td class="bgo"></td>
-				</tr>
-			</tbody>
-		</table>
-  </div>
-</div>
-
-
-<script type="text/javascript">
-	$(function () {
-		chkList();
-	});
-	function myPopup(myURL, title, myWidth, myHeight) {
-	var left = (screen.width - myWidth) / 2;
-	var top = (screen.height - myHeight) / 4;
-	var myWindow = window.open(myURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + myWidth + ', height=' + myHeight + ', top=' + top + ', left=' + left);
-	}
-	function chkList(){
-		var tatal_n = $(".codinglist tr").length - $(".depth").length-1;
-		var curr_n = 0;
-		var $ctd = $(".codinglist td.work"),
-			$ctr = $(".codinglist tr");
-	
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; //January is 0!
-		var yyyy = today.getFullYear();
-	
-		if(dd<10) {
-			dd = '0'+dd
-		} 
-	
-		if(mm<10) {
-			mm = '0'+mm
-		} 
-	
-		today = yyyy + '-' + mm + '-' + dd;
-		
-		$ctr.each(function(index) {
-			var $this = $(this),
-				$td = $this.find("td.work");
-			if($td.hasClass("end")){
-				curr_n++
-				$td.text("완료");
-			} else {
-				if($td.hasClass("ing")){
-					$td.text(today+" 작업중").addClass('ing');
-				}else{
-					$td.text("대기중").addClass('stand_by');
-				}
-			}
-		});
-		$(".codinglist tr").each(function() {
-			var index = $(".codinglist tr").not('.depth').index(this);
-			$(this).children(".codinglist td.no").text(index);
-		});
-		$("td.link > a").each(function(){
-			var $this = $(this),
-				$t_href = $this.attr("href");
-			if($this.parents("td").hasClass("else")){return;}
-			$this.parent("td").next(".td_url").append("<div class='link_w'><a href='"+$t_href+"' target='_blank'>"+$t_href+"</a></div>");
-			$this.wrapAll("<div class='link_w' />");
-		});
-		$('.total_n').text(tatal_n);
-		$('.curr_n').text(curr_n);
-		$('.per').text(Math.floor((curr_n/tatal_n)*100) + '%');
-	}
-	</script>
-</body>
-</html>
+<!DOCTYPE html><html lang="ko"><head>	<meta charset="utf-8">	<meta name="format-detection" content="telephone=no" />	<meta http-equiv="X-UA-Compatible" content="IE=edge">	<link rel="shortcut icon" href="./images/logo_icon_114.png">	<link rel="apple-touch-icon" href="./images/logo_icon_114.png">	<meta name="viewport" content="width=1200" />	<link rel="stylesheet" href="css/reset.css" />	<script src="./js/jquery-1.12.4.min.js"></script>	<title></title>	<style type="text/css">		* {			margin: 0;			padding: 0;		}		ul {			list-style: none;			margin: 0;			padding: 0;		}		table {			border-collapse: collapse;			border-spacing: 0;		}		table th,		strong {			font-weight: normal;		}		body {			margin: 20px;		}		h1 {			margin: 0 0 10px 0;			color: #000;			font-size: 30px;			font-family: 'Noto Sans KR';			font-weight: 700		}		a {			text-decoration: none;			color: #000;		}		a:hover {			text-decoration: underline;		}		.list_w table {			width: 100%;			margin: 20px auto;			border-top: solid 2px #555;			font-family: 'Noto Sans KR';			border-collapse: collapse;			border-spacing: 0;			font-size: 17px;			text-align: center;		}		.list_w table tr:hover {			background: #f3f3f3;		}		.list_w table th {			font-family: 'Noto Sans KR';			font-size: 17px;			padding: 10px 0;			border: solid 1px #ddd;			background: #efefef;			vertical-align: middle;		}		.list_w table td {			font-family: 'Noto Sans KR';			font-size: 17px;			padding: 10px 3px;			border: solid 1px #ccc;			vertical-align: middle;		}		.lastmdate {			color: #1155CC;		}		.stand_by {			color: #777;		}		.stop {			color: #787878;		}		.ing {			color: blue !important;		}		.bgo {			text-align: left;			color: #fff;			font-size: 15px !important;		}		.end {			background: green !important;			color: #fff !important;		}		.defer {			color: red;		}		.modify {			color: #ff5400;		}		.list_w table td.link,		.list_w table td.td_url,		.list_w table td.etc {			text-align: left;			padding-left: 10px;		}		.ing_w {			border: 1px solid #000;			margin: 0 0 20px;			padding: 5px 10px;		}		.t_tit {			margin: 20px 0 10px;			font-size: 20px;		}		.ing_w .inglist li {			padding: 10px;			border-bottom: 1px solid #999;		}		.ing_w .inglist li:last-child {			border-bottom: 0;		}		.ing_w .inglist .date {			font-weight: bold;		}		.ing_w .inglist .text .ingtext {			font-weight: bold;		}		.guidelist {			padding: 8px 0;		}		.guidelist li {			padding: 2px 10px;		}		.alignleft {			text-align: left;			padding-left: 10px !important;		}		.depth td {			background: #4264c2;			color: #fff;			text-align: center;			font-size: 20px;			font-family: 'Noto Sans KR';			padding: 10px;		}		.dev td {			background: #4264c2;			color: #fff;			text-align: center;			font-size: 20px;			font-family: 'Noto Sans KR';			padding: 10px;		}		.dev_notice {			border-top: 1px solid #000;			border-bottom: 1px solid #000;			padding: 10px;			margin: 30px 0;		}		.header_pixed {			position: fixed;			top: 0;			left: 0;			width: 100%;			background: #fff;			box-sizing: border-box;			padding: 20px;			border-bottom: 1px solid #000;		}		.header_pixed p {			font-family: 'Noto Sans KR';			font-size: 17px;			margin-top: 5px;		}	</style>	<script>		$(window).on("load", function() {			$("#guide_wrap").css("padding-top", $(".header_pixed").outerHeight());		});		function myPopup(myURL, title, myWidth, myHeight) {			var left = (screen.width - myWidth) / 2;			var top = (screen.height - myHeight) / 4;			var myWindow = window.open(myURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + myWidth + ', height=' + myHeight + ', top=' + top + ', left=' + left);		}	</script></head><body id="guide">	<!-- eniter wrap -->	<div id="guide_wrap">		<div class="header_pixed">			<h1>응답소</h1>			<p>End page : <span class="curr_n"></span>page / Total page : <span class="total_n"></span>page</p>			<p>진행율 : <span class="per"></span></p>		</div>		<div class="list_w">			<table class="codinglist">				<colgroup>					<col width="3%" />					<col />					<col width="35%" />					<col width="10%" />					<col width="20%" />				</colgroup>				<thead>					<tr>						<th>no.</th>						<th>filename/link</th>						<th>HTML 파일명</th>						<th>현황</th>						<th>전달사항</th>					</tr>				</thead>				<tbody>					<tr class="depth">						<td colspan="5">개발시 참고 페이지</td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="page.html" target="_blank">레이아웃 - 로그인전</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="page2.html" target="_blank">레이아웃 - 타입2 - 로그인전</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="page_login.html" target="_blank">레이아웃 - 로그인후</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<!-- <tr>					<td class="no"></td>					<td class="link"><a href="library.html" target="_blank">라이브러리</a></td>					<td class="td_url"></td>					<td class="work ing"></td>					<td class="bgo"></td>				</tr> -->					<tr class="depth">						<td colspan="5">멤버</td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="member_login.html" target="_blank">회원로그인</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="member_login.html" target="_blank">비회원로그인</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr class="depth">						<td colspan="5">민원신청</td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_rectify_list.html" target="_blank">시정일반질의건의_list</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_rectify_list.html" target="_blank">시정일반질의건의_list_검색없음</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_rectify_list.html" target="_blank">시정일반질의건의_list_데이터없음</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_rectify_form.html" target="_blank">시정일반질의건의_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_covid19_violation_list.html" target="_blank">코로나19방역수칙위반신고센터_list</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_mayor_hope_list.html" target="_blank">시장에게바란다_list</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_hotline_public_form.html" target="_blank">시장핫라인_공직자비리신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_hotline_interest_form.html" target="_blank">시장핫라인_공익신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_hotline_overuse_form.html" target="_blank">시장핫라인_갑질피해신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_hotline_illegality_self_form.html" target="_blank">시장핫라인_부정청탁및금품등수수신고_자진신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_hotline_illegality_other_form.html" target="_blank">시장핫라인_부정청탁및금품등수수신고_제3자신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_hotline_retire_form.html" target="_blank">시장핫라인_퇴직공무원특혜제공신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_investment_form.html" target="_blank">투자출연기관비리신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_subcontract_form.html" target="_blank">하도급부조리신고_신고안내_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_human_right_form.html" target="_blank">인권침해구제신청_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_people_form.html" target="_blank">민생침해신고_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_taxes_objection_form.html" target="_blank">지방세이의신청_이의신청_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="complaint_taxes_statement_form.html" target="_blank">지방세이의신청_의견진술신청_form</a></td>						<td class="td_url"></td>						<td class="work end"></td>						<td class="bgo"></td>					</tr>					<tr class="depth">						<td colspan="5">정보</td>					</tr>					<tr>						<td class="no"></td>						<td class="link"><a href="data_manless_pos.html" target="_blank">무인민원발급기위치</a></td>						<td class="td_url"></td>						<td class="work ing"></td>						<td class="bgo"></td>					</tr>				</tbody>			</table>		</div>	</div>	<script type="text/javascript">		$(function() {			chkList();		});		function myPopup(myURL, title, myWidth, myHeight) {			var left = (screen.width - myWidth) / 2;			var top = (screen.height - myHeight) / 4;			var myWindow = window.open(myURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + myWidth + ', height=' + myHeight + ', top=' + top + ', left=' + left);		}		function chkList() {			var tatal_n = $(".codinglist tr").length - $(".depth").length - 1;			var curr_n = 0;			var $ctd = $(".codinglist td.work"),				$ctr = $(".codinglist tr");			var today = new Date();			var dd = today.getDate();			var mm = today.getMonth() + 1; //January is 0!			var yyyy = today.getFullYear();			if (dd < 10) {				dd = '0' + dd			}			if (mm < 10) {				mm = '0' + mm			}			today = yyyy + '-' + mm + '-' + dd;			$ctr.each(function(index) {				var $this = $(this),					$td = $this.find("td.work");				if ($td.hasClass("end")) {					curr_n++					$td.text("완료");				} else {					if ($td.hasClass("ing")) {						$td.text(today + " 작업중").addClass('ing');					} else {						$td.text("대기중").addClass('stand_by');					}				}			});			$(".codinglist tr").each(function() {				var index = $(".codinglist tr").not('.depth').index(this);				$(this).children(".codinglist td.no").text(index);			});			$("td.link > a").each(function() {				var $this = $(this),					$t_href = $this.attr("href");				if ($this.parents("td").hasClass("else")) {					return;				}				$this.parent("td").next(".td_url").append("<div class='link_w'><a href='" + $t_href + "' target='_blank'>" + $t_href + "</a></div>");				$this.wrapAll("<div class='link_w' />");			});			$('.total_n').text(tatal_n);			$('.curr_n').text(curr_n);			$('.per').text(Math.floor((curr_n / tatal_n) * 100) + '%');		}	</script></body></html>

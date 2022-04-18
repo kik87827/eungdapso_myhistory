@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	@@include('./include/head.html')
+	<title>로그인 | 응답소</title>
+</head>
+<body class="front_body">
+	@@include('./include/skip.html')
+	<div class="page_wrap">
+		@@include('./include/header.html',{
+			"login_is": false
+		})
+		<section class="mid_contents wide_single">
+			<!-- submap -->
+			<div class="submap_zone_parent">
+				<div class="submap_zone">
+					<div class="sub_map_pixin">
+						<a href="/" class="sub_map_home"><span class="hdtext">홈</span></a>
+						<div class="sub_map_fxwrap">
+							<div class="sub_map_fxitem">
+								<div class="sub_map_toggle_wrap">
+									<span class="map_current_text">로그인</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // submap -->
+			<div class="single_field_wrap" id="content">
+				<div class="sf_inbox">
+					<div class="sf_intitle_low">
+						<h2 class="sf_intitle">로그인</h2>
+						<p class="sf_intitle_copy">로그인 후 응답소 민원 접수와 결과 조회가 가능합니다.</p>
+					</div>
+					<div class="box_logform">
+						<div class="sf_inboxtab_wrap">
+							<a href="#member_cont" class="sf_intab active"><span class="sf_intab_text">회원</span></a>
+							<a href="#nonmember_cont" class="sf_intab"><span class="sf_intab_text">비회원</span></a>
+						</div>
+						<div class="sf_inboxcont_wrap">
+							<div class="sf_inboxcont active" id="member_cont">
+								<h3 class="hdtext">회원</h3>
+								<div class="sf_inbox_copy">서울시 홈페이지 통합 회원계정으로 <br>로그인을 해주세요.</div>
+								<div class="sf_inbox_form">
+									<div class="sf_vformitem_low"><input type="text" class="loginput" title="아이디 입력" placeholder="아이디"></div>
+									<div class="sf_vformitem_low"><input type="password" class="loginput" title="비밀번호 입력" placeholder="비밀번호"></div>
+									<div class="sf_vformitem_low">
+										<div class="chkrd_item"><input type="checkbox" class="chkrd" id="save_id"><label for="save_id" class="chkrd_label">아이디 저장</label></div>
+									</div>
+								</div>
+								<div class="inbox_submit_wrap">
+									<a href="javascript:;" class="btn_inbox_submit">로그인</a>
+									<div class="inbox_else_fxwrap">
+										<ul class="logelse_menu_list">
+											<li><a href="#" class="logelse_menu">아이디 찾기</a></li>
+											<li><a href="#" class="logelse_menu">비밀번호 찾기</a></li>
+										</ul>
+										<div class="logelse_btn_list">
+											<a href="#" class="btn_logelse" title="새창" target="_blank">서울시 통합 회원가입</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sf_inboxcont dtype2" id="nonmember_cont">
+								<h3 class="hdtext">비회원</h3>
+								<div class="sf_inbox_copy">회원가입 없이 본인인증, 소셜 로그인을 통해 <br>서비스를 이용하실 수 있습니다.</div>
+								<div class="iden_hitem_fxwrap">
+									<div class="iden_hitem" tabindex="0">
+										<p class="iden_htitle">휴대전화 본인인증</p>
+										<div class="iden_hico_w"><div class="iden_hico"></div></div>
+										<div class="iden_hcopy"><strong class="copy_emp">휴대폰인증</strong>은 주민등록번호 없이 이름/성별/생년월일/휴대전화번호 정보만으로 본인임을 확인할 수 있는 서비스입니다.</div>
+										<a href="javascript:;" class="btn_logiden">휴대폰 인증하기</a>
+									</div>
+									<div class="iden_hitem" tabindex="0">
+										<p class="iden_htitle">아이핀(i-PIN) 본인인증</p>
+										<div class="iden_hico_w"><div class="iden_hico dtype2"></div></div>
+										<div class="iden_hcopy"><strong class="copy_emp">아이핀(i-PIN)</strong>은 주민등록번호 대체 수단으로 인터넷에서 주민등록번호를 사용하지 않고도 본인임을 확인할 수 있는 서비스입니다.</div>
+										<a href="javascript:;" class="btn_logiden type2">아이핀 인증하기</a>
+									</div>
+								</div>
+								<div class="iden_boxcoment_wrap">
+									<p class="important_text">아이핀은 인터넷 익스플로러(IE)에 최적화 되어 있으므로 윈도우10의 엣지(Edge) 브라우저를 사용하시는 분은 ‘자동으로 IE11전환 모드를 선택’하여 주시기 바랍니다. 모바일 환경에서는 원활한 서비스를 위해서 팝업차단 해제 및 쿠키허용 여부를 확인해야 합니다.</p>
+								</div>
+								<div class="iden_social">
+									<div class="iden_snstext_wrap">
+										<p class="iden_snstitle">소셜 로그인</p>
+										<p class="iden_snscopy">카카오톡, 네이버, 구글의 계정으로 인증 후 비회원 로그인 합니다.</p>
+									</div>
+									<div class="iden_snslogo_wrap">
+										<a href="javascript:;" class="iden_snslogo sns_kakao" target="_blank" title="카카오 새창열기"><span class="iden_snslogo_text">카카오</span></a>
+										<a href="javascript:;" class="iden_snslogo sns_naver" target="_blank" title="네이버 새창열기"><span class="iden_snslogo_text">네이버</span></a>
+										<a href="javascript:;" class="iden_snslogo sns_google" target="_blank" title="구글 새창열기"><span class="iden_snslogo_text">구글</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="logform_botcopy">로그인 정보는 30분 동안 유지되며 자리를 비우실 때에는 보안을 위해 <br class="pc_br">반드시 로그아웃하거나 사용 중인 모든 인터넷 창을 닫으시길 바랍니다.</p>
+				</div>
+			</div>
+		</section>
+		<script>
+			$(function(){
+				loginTabFunc();
+			});
+		</script>
+		@@include('./include/footer.html')
+	</div>
+</body>
+</html>

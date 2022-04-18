@@ -356,7 +356,7 @@
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	background: #1b2740;
+	background: #404374;
 	color: #fff;
 	border-radius:100%;
 	min-width:8px;text-align:center;
@@ -672,5 +672,5 @@ background: #fff url("../images/bg_fsel.png") no-repeat 100% 50%;-webkit-appeara
 .ui-datepicker-title select::-ms-expand {display: none;}
 
 @media (max-width:1023px){
-	.ui-datepicker{width:100%;box-sizing: border-box;left:0 !important;}
+	.ui-datepicker{width:calc(100% - 40px) !important;box-sizing: border-box;left:20px !important;}
 }
