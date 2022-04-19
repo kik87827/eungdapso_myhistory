@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	@@include('./include/head.html')
+	<title>하도급 부조리 신고 | 민원신청 | 응답소</title>
+</head>
+<body class="front_body">
+	@@include('./include/skip.html')
+	<div class="page_wrap">
+		@@include('./include/header.html',{
+			"login_is": false
+		})
+		<section class="mid_contents">
+			<!-- submap -->
+			<div class="submap_zone_parent">
+				<div class="submap_zone">
+					<div class="sub_map_pixin">
+						<a href="/" class="sub_map_home"><span class="hdtext">홈</span></a>
+						<div class="sub_map_fxwrap">
+							<div class="sub_map_fxitem">
+								<div class="sub_map_toggle_wrap">
+									<a href="javascript:;" class="map_toggle_current">민원신청</a>
+									<div class="map_depth_vlist_wrap">
+										<ul class="map_depth_vlist">
+											<li class="active"><a href="#" class="map_depth">민원신청</a></li>
+											<li><a href="#" class="map_depth">민원결과</a></li>
+											<li><a href="#" class="map_depth">민원사례</a></li>
+											<li><a href="#" class="map_depth">정보</a></li>
+											<li><a href="#" class="map_depth">고객소통센터</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="sub_map_fxitem">
+								<div class="sub_map_toggle_wrap">
+									<a href="javascript:;" class="map_toggle_current">하도급 부조리 신고</a>
+									<div class="map_depth_vlist_wrap">
+										<ul class="map_depth_vlist">
+											<li><a href="#" class="map_depth">시정일반 질의ㆍ건의</a></li>
+											<li><a href="#" class="map_depth">코로나19 방역수칙 위반 신고센터</a></li>
+											<li><a href="#" class="map_depth">코로나19 백신접종 신고</a></li>
+											<li><a href="#" class="map_depth">시장에게 바란다</a></li>
+											<li><a href="#" class="map_depth">시장 핫라인(공익제보)</a></li>
+											<li><a href="#" class="map_depth">투자출연기관 비리신고</a></li>
+											<li class="active" class="active"><a href="#" class="map_depth">하도급 부조리 신고</a></li>
+											<li><a href="#" class="map_depth">인권침해 구제신청</a></li>
+											<li><a href="#" class="map_depth">민생침해신고(눈물그만)</a></li>
+											<li><a href="#" class="map_depth">노동조사신고</a></li>
+											<li><a href="#" class="map_depth">지방세 이의신청</a></li>
+											<li><a href="#" class="map_depth">성평등 노동조사신고</a></li>
+											<li><a href="#" class="map_depth">공직비리 익명신고</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // submap -->
+			<div class="subcont_zone" id="content">
+				<!-- subdep3_vobj_zone -->
+				<div class="subdep3_vobj_zone">
+					<div class="subdep3_vtitle_fxwrap">
+						<h3 class="subdep3_vtitle">하도급 부조리 신고</h3>
+						<div class="btn_deptailcall_w">
+							<a href="javascript:;" data-toggletarget="#toggleTarget_01" class="btn_deptailcall">
+								<span class="deptailcall_in">하도급 부조리 신고 안내보기<span class="hdtext">열기</span></span>
+							</a>
+						</div>
+					</div>
+					<div class="subdep3_vtoggle_item" id="toggleTarget_01">
+						<div class="subdep3_vtoggle_inner">
+							<ul class="svdot_vlist">
+								<li class="type2">
+									<span class="svdot_sym">신고 처리기간</span>
+									: 7일 이내 처리됩니다. 조사 필요시 60일이내</li>
+								<li class="type2">
+									<span class="svdot_sym">운영시간</span>
+									: 평일 9시~18시에 신고한 내용은 당일 접수됩니다.<span class="sguide_check">(운영시간 외 신고한 내용은 평일 운영시간에 접수)</span>
+								</li>
+							</ul>
+							<ul class="svdash_vlist">
+								<li>서울시는 건설공사 불법 · 불공정 하도급, 대금미지급, 임금체불 등 하도급 부조리로 인한 하도급자, 건설자재 · 장비 대여업자 및 건설현장 근로자들의 권익 침해를 구제하기 위해 서울시, 자치구, 산하 공사 · 공단 33개 하도급 부조리 신고센터를 운영하고 있으니, 하도급 부조리 발생 시 적극 신고하시기 바랍니다.</li>
+							</ul>
+						</div>
+					</div>
+					<div class="svitem_zone">
+						@@include('./include/raw_cont.html')
+						<div class="btn_sigitem_wrap atype2">
+							<div class="btn_sigitem_right">
+								<a href="#" class="btn_sigbox dtype2">임시저장 불러오기</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- // subdep3_vobj_zone -->
+				<div class="subcont_wrap">
+					<div class="vformitem_wrap">
+						<div class="vformitem">
+							<div class="vformitem_titlow fxtype">
+								<h3 class="vform_tit">신고인</h3>
+								<div class="vform_else_wrap">
+									<p class="vform_coment"><span class="vfc_emp">*</span>표시된 곳은 반드시 입력하여야 합니다.</p>
+								</div>
+							</div>
+							<div class="vformitem_contlow">
+								<div class="respon_form">
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<span class="respon_vlabel_wrap">
+													<span class="respon_vlabel">이름</span>
+													<span class="vfc_emp">*</span>
+												</span>
+											</div>
+											<div class="res_hcell restd">
+												<span class="rp_indata">김응답</span>
+											</div>
+										</div>
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="reportmen_02" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">회사명</span>
+													<span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" title="회사명 입력" class="form_input" id="reportmen_02">
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="reportmen_03" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">건설업 면허</span>
+													<span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" title="건설업 면허 입력" class="form_input" id="reportmen_03">
+											</div>
+										</div>
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="reportmen_04" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">이메일</span>
+													<span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" title="이메일 입력" class="form_input" id="reportmen_04">
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="reportmen_05" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">전화번호</span>
+													<span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inform_fxwrap">
+													<div class="inform_form">
+														<select class="form_select ready_select" id="reportmen_05" title="전화번호 맨앞 3자리 선택">
+															<option value="0">선택</option>
+															<option value="1">02</option>
+														</select>
+													</div>
+													<div class="inform_else">
+														<span class="inform_elsetext">-</span>
+													</div>
+													<div class="inform_form"><input type="text" class="form_input" title="전화번호 두번째 4자리 입력"></div>
+													<div class="inform_else">
+														<span class="inform_elsetext">-</span>
+													</div>
+													<div class="inform_form"><input type="text" class="form_input" title="전화번호 맨뒤 4자리 입력"></div>
+												</div>
+											</div>
+										</div>
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="reportmen_06" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">휴대전화</span>
+													<span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inform_fxwrap">
+													<div class="inform_form">
+														<select class="form_select ready_select" id="reportmen_06" title="휴대전화 맨앞 3자리 선택">
+															<option value="0">선택</option>
+															<option value="1">010</option>
+														</select>
+													</div>
+													<div class="inform_else">
+														<span class="inform_elsetext">-</span>
+													</div>
+													<div class="inform_form"><input type="text" class="form_input" title="휴대전화 두번째 4자리 입력"></div>
+													<div class="inform_else">
+														<span class="inform_elsetext">-</span>
+													</div>
+													<div class="inform_form"><input type="text" class="form_input" title="휴대전화 맨뒤 4자리 입력"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr pchalf"></div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="reportmen_07" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">주소</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inrow_form_w">
+													<div class="inrow_formlow inform_fxwrap">
+														<div class="inform_fxform"><input type="text" title="주소 입력" data-pcwid="220" style="width:220px" class="form_input" disabled id="reportmen_07"></div>
+														<div class="inform_fxbtn">
+															<a href="javascript:;" title="도로명주소 검색 팝업 열기" class="btn_informtext">도로명주소 검색</a>
+														</div>
+													</div>
+													<div class="inrow_formlow inform_fxfull">
+														<div class="inform_fxfull_item"><input type="text" class="form_input" title="주소명 입력" disabled></div>
+														<div class="inform_fxfull_item"><input type="text" class="form_input" title="상세주소명 입력" placeholder="상세주소명"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="vformitem dtype2">
+							<div class="vformitem_titlow">
+								<h3 class="vform_tit">피신고자</h3>
+							</div>
+							<div class="vformitem_contlow">
+								<div class="respon_form">
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="nonreporter_01" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">이름(대표자)</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" title="이름(대표자) 입력" class="form_input" id="nonreporter_01">
+											</div>
+										</div>
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="nonreporter_02" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">건설업 면허</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" title="건설업 입력" class="form_input" id="nonreporter_02">
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="nonreporter_03" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">회사명</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" title="회사명 입력" class="form_input" id="nonreporter_03">
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="nonreporter_04" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">휴대전화</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inform_fxwrap">
+													<div class="inform_form"><select class="form_select ready_select" id="nonreporter_04" title="휴대전화 맨앞 3자리 선택"><option value="0">선택</option><option value="1">010</option></select></div>
+													<div class="inform_else"><span class="inform_elsetext">-</span></div>
+													<div class="inform_form"><input type="text" class="form_input" title="휴대전화 두번째 4자리 입력"></div>
+													<div class="inform_else"><span class="inform_elsetext">-</span></div>
+													<div class="inform_form"><input type="text" class="form_input" title="휴대전화 맨뒤 4자리 입력"></div>
+												</div>
+											</div>
+										</div>
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="nonreporter_05" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">전화번호</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inform_fxwrap">
+													<div class="inform_form"><select class="form_select ready_select" id="nonreporter_05" title="전화번호 맨앞 3자리 선택"><option value="0">선택</option><option value="1">02</option></select></div>
+													<div class="inform_else"><span class="inform_elsetext">-</span></div>
+													<div class="inform_form"><input type="text" class="form_input" title="전화번호 두번째 4자리 입력"></div>
+													<div class="inform_else"><span class="inform_elsetext">-</span></div>
+													<div class="inform_form"><input type="text" class="form_input" title="전화번호 맨뒤 4자리 입력"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="nonreporter_06" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">주소(영업소)</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inrow_form_w">
+													<div class="inrow_formlow inform_fxwrap">
+														<div class="inform_fxform"><input type="text" title="주소(영업소) 입력" data-pcwid="220" style="width:220px" class="form_input" disabled id="nonreporter_06"></div>
+														<div class="inform_fxbtn"><a href="javascript:;" title="도로명주소 검색 팝업 열기" class="btn_informtext">도로명주소 검색</a></div>
+													</div>
+													<div class="inrow_formlow inform_fxfull">
+														<div class="inform_fxfull_item"><input type="text" class="form_input" title="주소명 입력" disabled></div>
+														<div class="inform_fxfull_item"><input type="text" class="form_input" title="상세주소명 입력" placeholder="상세주소명"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="vformitem">
+							<div class="vformitem_titlow">
+								<h3 class="vform_tit">공사정보</h3>
+							</div>
+							<div class="vformitem_contlow">
+								<div class="respon_form">
+									<div class="respon_tr">
+										<div class="respon_hitem vtype2">
+											<div class="res_hcell resth">
+												<span class="respon_vlabel_wrap">
+													<span class="respon_vlabel">발주<br class="mb_br">기관별 <br>공사유형</span><span class="vfc_emp">*</span>
+												</span>
+											</div>
+											<div class="res_hcell restd">
+												<ul class="chkrd_flist mbtype3">
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype01" id="publictype01_01" checked>
+															<label for="publictype01_01" class="chkrd_label">서울시 본청·본부·사업소,공사공단,자치구</label>
+														</div>
+													</li>
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype01" id="publictype01_02">
+															<label for="publictype01_02" class="chkrd_label">민간공사</label>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="construction_02" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">발주<br class="mb_br">기관명</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" class="form_input" id="construction_02" title="발주기관명 입력">
+											</div>
+										</div>
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="construction_03" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">공사명</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<input type="text" class="form_input" id="construction_03" title="공사명 입력">
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="construction_04" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">현장<br class="mb_br">위치</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inrow_form_w">
+													<div class="inrow_formlow inform_fxwrap">
+														<div class="inform_fxform"><input type="text" title="주소 입력" data-pcwid="220" style="width:220px" class="form_input" disabled id="construction_04"></div>
+														<div class="inform_fxbtn"><a href="javascript:;" title="도로명주소 검색 팝업 열기" class="btn_informtext">도로명주소 검색</a></div>
+													</div>
+													<div class="inrow_formlow inform_fxfull">
+														<div class="inform_fxfull_item"><input type="text" class="form_input" title="주소명 입력" disabled></div>
+														<div class="inform_fxfull_item"><input type="text" class="form_input" title="상세주소명 입력" placeholder="상세주소명"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="construction_05" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">원도급<br class="mb_br">사명</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd palltype2">
+												<div class="res_cellin_low">
+													<input type="text" class="form_input" id="construction_05" title="원도급사명 입력">
+												</div>
+												<div class="res_cellin_low res_cellfxwrap">
+													<div class="cellin_fxlab">현장<br class="mb_br">대리인</div>
+													<div class="cellin_fxform">
+														<div class="cell_intable">
+															<div class="cell_intr">
+																<div class="cell_incell cincth"><label for="spot01_fitem01" class="cinc_lab">이름</label></div>
+																<div class="cell_incell cinctd"><input type="text" class="form_input sztype2" id="spot01_fitem01"></div>
+															</div>
+															<div class="cell_intr">
+																<div class="cell_incell cincth"><label for="spot01_fitem02" class="cinc_lab">연락처</label></div>
+																<div class="cell_incell cinctd"><input type="text" class="form_input sztype2" id="spot01_fitem02"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="construction_06" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">하도급<br class="mb_br">사명</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd palltype2">
+												<div class="res_cellin_low">
+													<input type="text" class="form_input" id="construction_06" title="하도급사명 입력">
+												</div>
+												<div class="res_cellin_low res_cellfxwrap">
+													<div class="cellin_fxlab">현장<br class="mb_br">대리인</div>
+													<div class="cellin_fxform">
+														<div class="cell_intable">
+															<div class="cell_intr">
+																<div class="cell_incell cincth"><label for="spot02_fitem01" class="cinc_lab">이름</label></div>
+																<div class="cell_incell cinctd"><input type="text" class="form_input sztype2" id="spot02_fitem01"></div>
+															</div>
+															<div class="cell_intr">
+																<div class="cell_incell cincth"><label for="spot02_fitem02" class="cinc_lab">연락처</label></div>
+																<div class="cell_incell cinctd"><input type="text" class="form_input sztype2" id="spot02_fitem02"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="vformitem">
+							<div class="vformitem_titlow">
+								<h3 class="vform_tit">신고내용</h3>
+							</div>
+							<div class="vformitem_contlow">
+								<div class="respon_form">
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<span class="respon_vlabel_wrap">
+													<span class="respon_vlabel">하도급<br class="mb_br"> 부조리<br class="mb_br"> 유형</span><span class="vfc_emp">*</span>
+												</span>
+											</div>
+											<div class="res_hcell restd">
+												<ul class="chkrd_flist mbtype3">
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype02" id="publictype02_01" checked>
+															<label for="publictype02_01" class="chkrd_label">불법하도급</label>
+														</div>
+													</li>
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype02" id="publictype02_02">
+															<label for="publictype02_02" class="chkrd_label">불공정하도급</label>
+														</div>
+													</li>
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype02" id="publictype02_03">
+															<label for="publictype02_03" class="chkrd_label">하도급대급 체불</label>
+														</div>
+													</li>
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype02" id="publictype02_04">
+															<label for="publictype02_04" class="chkrd_label">장비대금 체불</label>
+														</div>
+													</li>
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype02" id="publictype02_05">
+															<label for="publictype02_05" class="chkrd_label">자재대금 체불</label>
+														</div>
+													</li>
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype02" id="publictype02_06">
+															<label for="publictype02_06" class="chkrd_label">임금 체불</label>
+														</div>
+													</li>
+													<li>
+														<div class="chkrd_item">
+															<input type="radio" class="chkrd" name="publictype02" id="publictype02_07">
+															<label for="publictype02_07" class="chkrd_label">기타</label>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="report_contents_02" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">체불금액</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="unit_inform_fxwrap" data-pcwid="310" style="width:310px;">
+													<div class="unit_fxform"><input type="text" class="form_input align2" title="체불금액 입력" id="report_contents_02"></div>
+													<div class="unit_fxunit"><span class="unit_fxtext">원</span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="report_contents_03" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">체불기간</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="inform_fxdate_item" data-pcwid="510" style="width:510px;">
+													<div class="inform_fxinner">
+														<div class="infxinner_form"><input type="text" class="form_input define_calendar" id="report_contents_03" title="시작일 날짜 선택" placeholder="2022-01-01"></div>
+														<div class="infxinner_else"><span class="infx_wpsp">~</span></div>
+														<div class="infxinner_form"><input type="text" class="form_input define_calendar" title="종료일 날짜 선택" placeholder="2022-01-01"></div>
+													</div>
+													<div class="unit_inform_fxwrap">
+														<div class="unit_fxform"><input type="text" class="form_input"></div>
+														<div class="unit_fxunit"><span class="unit_fxtext">개월 분</span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="report_contents_04" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">신고내용</span><span class="vfc_emp">*</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="count_textarea_wrap">
+													<textarea rows="10" cols="10" title="신고내용 입력" class="ctextarea" id="report_contents_04"></textarea>
+													<div class="ctarea_low">
+														<span class="cnum_inwrap">
+															<span class="cnum_current">0</span>
+															<span class="cnum_part">/</span>
+															<span class="cnum_length">3,000</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="respon_tr">
+										<div class="respon_hitem">
+											<div class="res_hcell resth">
+												<label for="report_contents_05" class="respon_vlabel_wrap">
+													<span class="respon_vlabel">신고서류<br>파일첨부</span>
+												</label>
+											</div>
+											<div class="res_hcell restd">
+												<div class="file_upload_item_wrap">
+													<div class="file_upload_vlow define_form">
+														<div class="file_input_fxwrap">
+															<div class="file_input_fxcell"><input type="text" title="선택된 파일명 입력" class="file_input" id="report_contents_05" placeholder="선택된 파일 없음"></div>
+															<div class="file_btn_fxcell">
+																<input type="file" class="btn_fileupload" title="파일선택" id="file_upload_item">
+																<label for="file_upload_item" class="file_upload_text">파일선택</label>
+															</div>
+														</div>
+														<p class="important_text">5개까지 등록 가능, 등록가능 확장자(hwp, doc, txt, ppt, xls, bmp, jpg, gif, png, pdf, rtf, avi, wmv, mp4, zip, jpeg, tiff, mp3, wav, mid, ogg, wma, m4a)</p>
+													</div>
+													<div class="file_upload_vlow define_current">
+														<span class="file_current_label">첨부파일</span>
+														<ul class="file_current_vlist">
+															<li>
+																<a href="javascript:;" title="다운로드" class="file_current"><span class="file_current_in">민원신청_시정일반질의건의.png ( 491 bytes)</span></a>
+																<button type="button" title="파일삭제" class="btn_filecontrol">삭제</button>
+															</li>
+															<li>
+																<a href="javascript:;" title="다운로드" class="file_current"><span class="file_current_in">민원신청_시장에게바란다.png ( 628 bytes)</span></a>
+																<button type="button" title="파일삭제" class="btn_filecontrol">삭제</button>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="vguideitem_w">
+						@@include('./include/vguide_per.html')
+					</div>
+					<div class="btn_botsubmit_zone">
+						<div class="btn_bothlayout_fxwrap">
+							<div class="btn_bothcell">
+								<a href="#" class="btn_bcsubmit">이전</a>
+							</div>
+							<div class="btn_bothcell">
+								<a href="#" class="btn_bcsubmit dtype2">임시저장</a>
+								<a href="#" class="btn_bcsubmit dtype3">등록</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				@@include('./include/popup_complaint.html')
+				<script>
+					mobileMenuRock("#mbgnb01_05");
+					$(function () { // tab
+						subContentsTabFunc("#contents_hlist", "#contents_group");
+						// 자세히 보기 클릭
+						$("#btn_complaint_call").on("click", function (e) {
+							dimLayerShow({target: "#deptail_pop01"});
+						});
+						// toggle
+						subContentsTogglefunc({openText: "열기", closeText: "닫기"});
+						// 파일 첨부
+						$("#file_upload_item").on("change", function () {
+							var $t = $(this),
+								$t_p = $t.parents(".file_input_fxwrap"),
+								$t_p_input = $t_p.find(".file_input");
+							$t_p_input.val($t[0].value);
+						});
+					});
+				</script>
+			</div>
+		</section>
+		@@include('./include/footer.html')
+	</div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	@@include('./include/head.html')
+	<title>시장에게 바란다 | 민원신청 | 응답소</title>
+</head>
+<body class="front_body">
+	@@include('./include/skip.html')
+	<div class="page_wrap">
+		@@include('./include/header.html',{
+			"login_is": false
+		})
+		<section class="mid_contents">
+			<!-- submap -->
+			<div class="submap_zone_parent">
+				<div class="submap_zone">
+					<div class="sub_map_pixin">
+						<a href="/" class="sub_map_home"><span class="hdtext">홈</span></a>
+						<div class="sub_map_fxwrap">
+							<div class="sub_map_fxitem">
+								<div class="sub_map_toggle_wrap">
+									<a href="javascript:;" class="map_toggle_current">민원신청</a>
+									<div class="map_depth_vlist_wrap">
+										<ul class="map_depth_vlist">
+											<li class="active"><a href="#" class="map_depth">민원신청</a></li>
+											<li><a href="#" class="map_depth">민원결과</a></li>
+											<li><a href="#" class="map_depth">민원사례</a></li>
+											<li><a href="#" class="map_depth">정보</a></li>
+											<li><a href="#" class="map_depth">고객소통센터</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="sub_map_fxitem">
+								<div class="sub_map_toggle_wrap">
+									<a href="javascript:;" class="map_toggle_current">시장에게 바란다</a>
+									<div class="map_depth_vlist_wrap">
+										<ul class="map_depth_vlist">
+											<li><a href="#" class="map_depth">시정일반 질의ㆍ건의</a></li>
+											<li><a href="#" class="map_depth">코로나19 방역수칙 위반 신고센터</a></li>
+											<li><a href="#" class="map_depth">코로나19 백신접종 신고</a></li>
+											<li class="active"><a href="#" class="map_depth">시장에게 바란다</a></li>
+											<li><a href="#" class="map_depth">시장 핫라인(공익제보)</a></li>
+											<li><a href="#" class="map_depth">투자출연기관 비리신고</a></li>
+											<li><a href="#" class="map_depth">하도급 부조리 신고</a></li>
+											<li><a href="#" class="map_depth">인권침해 구제신청</a></li>
+											<li><a href="#" class="map_depth">민생침해신고(눈물그만)</a></li>
+											<li><a href="#" class="map_depth">노동조사신고</a></li>
+											<li><a href="#" class="map_depth">지방세 이의신청</a></li>
+											<li><a href="#" class="map_depth">성평등 노동조사신고</a></li>
+											<li><a href="#" class="map_depth">공직비리 익명신고</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // submap -->
+			<div class="subcont_zone" id="content">
+				<div class="subcont_titlow"><h2 class="subcont_tit">시장에게 바란다</h2></div>
+				<div class="subcont_contwrap">
+					<div class="sct_vbox ico_mayor">
+						<div class="sct_vbox_cont">
+							<ul class="vtextdot_list">
+								<li>일반민원, 고충민원 등에 대하여는 응답소(민원제안신청)을 이용하여 의견을 제시하여 주시기 바랍니다.</li>
+								<li>보내주신 의견은 등록된 개인 전자우편으로 답변해 드리며, 전자우편을 받지 못하신 분은 '결과보기' 버튼을 클릭하여 확인하실 수 있습니다.</li>
+								<li>신청 전에 유사한 내용이 있는지 공개사례를 확인하여 주시기 바랍니다.</li>
+								<li>
+									<span class="vtextdot_emp">‘시장에게 바란다’</span>는 이용자 의견에 답변이 필요하다고 판단되는 경우 민원사무에 준하여 처리됩니다.
+									<p class="vtextdot_sub">서울특별시 인터넷 홈페이지 운영 활성화에 관한 조례 제6조</p>
+								</li>
+							</ul>
+							<div class="btn_sctobj_w">
+								<a href="#" class="btn_sctobj">민원 신청하기</a>
+								<a href="#" class="btn_sctobj dtype2">결과보기</a>
+							</div>
+						</div>
+					</div>
+					<div class="sortfield_box">
+						<div class="sf_low define_ment"><p class="sf_ment">민원 신청 하시기 전에 민원사례를 확인해 주세요.</p></div>
+						<fieldset class="sf_low define_searchform">
+							<legend>검색</legend>
+							<div class="searchform_fxlayout_wrap">
+								<div class="sfx_fitem sfx_short">
+									<div class="sfres_form">
+										<div class="sfres_labelcell"><label for="sfres01" class="sfres_label">공개일</label></div>
+										<div class="sfres_fieldcell">
+											<div class="inform_fxinner">
+												<div class="infxinner_form"><input type="text" class="form_input define_calendar" id="sfres01" title="시작일 날짜 선택" placeholder="2022-01-01"></div>
+												<div class="infxinner_else"><span class="infx_wpsp">~</span></div>
+												<div class="infxinner_form"><input type="text" class="form_input define_calendar" title="종료일 날짜 선택" placeholder="2022-01-01"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="sfx_fitem sfx_long">
+									<div class="searchform_fxwrap">
+										<div class="sfhitem define_select">
+											<select class="form_select ready_select" title="민원사례 검색 키워드 선택">
+												<option value="0">선택하세요</option>
+												<option value="1">제목</option>
+												<option value="2">답변내용</option>
+											</select>
+										</div>
+										<div class="sfhitem define_form">
+											<label for="search_item" class="hdtext">검색어 입력</label>
+											<input type="text" id="search_item" class="sfinput" title="검색어 입력" placeholder="검색어를 입력해주세요.">
+											<a href="javascript:;" class="btn_sfsubmit" title="검색"><span class="hdtext">검색</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</fieldset>
+						<div class="sf_low define_key">
+							<div class="sfkey_labcell"><span class="sflab">이슈검색어</span></div>
+							<div class="sfkey_datacell">
+								<div class="sfkey_w">
+									<a href="#" class="sfkey">#이관민원 조회</a>
+									<a href="#" class="sfkey">#백신접종장소</a>
+									<a href="#" class="sfkey">#코로나19 QnA</a>
+									<a href="#" class="sfkey">#백신접종사전예약</a>
+									<a href="#" class="sfkey">#보조금24 알아보기</a>
+									<a href="#" class="sfkey">#미세먼지 계절관리제</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="respon_lkcont">
+						<div class="rp_lkment">
+							<div class="rp_lkitem">총게시물 <span class="rplk_count">50건</span></div>
+							<div class="rp_lkitem">페이지 <span class="rplk_count">1/5</span></div>
+						</div>
+						<!--  complaint_mayor_hope_list 태이블 고유 클래스 -->
+						<div class="rp_tb_wrap default_skin complaint_mayor_hope_list">
+							<table class="rp_tb">
+								<caption>시장에게 바란다 리스트</caption>
+								<thead>
+									<tr>
+										<th scope="col" class="wid01 mb_hidden">번호</th>
+										<th scope="col" class="wid02">제목</th>
+										<th scope="col" class="wid03">신청일</th>
+										<th scope="col" class="wid04 mb_hidden">조회수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데대동단 본부터 표지석이 없어졌는데대동단 본부터 표지석이 없어졌는데대동단 본부터 표지석이 없어졌는데대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<tr>
+										<td class="wid01 mb_hidden"><span class="tb_indata">10</span></td>
+										<td class="wid02"><div class="rp_inlink_item"><a href="#" class="rp_inlink">대동단 본부터 표지석이 없어졌는데</a></div></td>
+										<td class="wid03"><span class="tb_indata">2021-12-02</span></td>
+										<td class="wid04 mb_hidden"><span class="tb_indata">7454</span></td>
+									</tr>
+									<!-- nodata -->
+									<tr>
+										<td colspan="4" data-mbcols="3" data-origin="4" class="no_data_td">
+											<div class="no_data_item">
+												<p class="no_data_text">조회된 데이터가 없습니다.</p>
+											</div>
+										</td>
+									</tr>
+									<!-- // nodata -->
+								</tbody>
+							</table>
+						</div>
+						<div class="data_paging_zone">
+							<div class="data_paing_wrap">
+								<a href="#" class="first_go"><span class="hdtext">처음 페이지로 이동</span></a>
+								<a href="#" class="prev_go"><span class="hdtext">이전 5페이지로 이동</span></a>
+								<ul class="pn_list">
+									<li><a href="#" class="pn_link active">1</a></li>
+									<li><a href="#" class="pn_link">2</a></li>
+									<li><a href="#" class="pn_link">3</a></li>
+									<li><a href="#" class="pn_link">4</a></li>
+									<li><a href="#" class="pn_link">5</a></li>
+								</ul>
+								<a href="#" class="next_go"><span class="hdtext">다음 5페이지로 이동</span></a>
+								<a href="#" class="last_go"><span class="hdtext">마지막 페이지로 이동</span></a>
+							</div>
+							<div class="data_pnelse_low">
+								<a href="#" class="btn_dataquad">글쓰기</a>
+							</div>	
+						</div>
+						<!-- 검색결과 없음 -->
+						<div class="no_result_item">
+							<p class="no_result_text"><span class="emp_text">“응답소민원”</span>로 검색된 결과가 없습니다.<br>다른 검색어를 입력해 주세요.</p>
+						</div>
+						<!-- // 검색결과 없음 -->
+					</div>
+				</div>
+				<script>mobileMenuRock("#mbgnb01_04");</script>
+			</div>
+		</section>
+		@@include('./include/footer.html')
+	</div>
+</body>
+</html>
